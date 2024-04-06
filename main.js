@@ -33,4 +33,8 @@ bookButtons.forEach((button, index) => {
         // Reset form after submission
         radioInputs.forEach(input => input.disabled = false);
     });
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 66741d9 (added the login features)
