@@ -126,3 +126,13 @@ var options = {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
+
+var signupButton = document.getElementsByClassName("connect-btn");
+var hasSignedUp = localStorage.getItem("hasSignedUp");
+if (hasSignedUp) {
+    signupButton.style.display = "none"; // Hide the signup button if user has signed up
+} else {
+    signupButton.addEventListener("click", function() {
+        window.location.href = "login.html"; 
+    });
+}
