@@ -34,3 +34,19 @@ bookButtons.forEach((button, index) => {
         radioInputs.forEach(input => input.disabled = false);
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    var bellIcon = document.querySelector(".notification_icon .fas.fa-bell");
+    var dropdown = document.querySelector(".dropdown");
+
+    bellIcon.addEventListener("click", function() {
+        dropdown.classList.toggle("active");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function(event) {
+        if (!event.target.closest('.notification_wrap')) {
+            dropdown.classList.remove("active");
+        }
+    });
+});

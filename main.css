@@ -2,9 +2,22 @@ body{
     background-color: black;
     padding: 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.top{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
+  text-align: center;
+}
+
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .heading{
