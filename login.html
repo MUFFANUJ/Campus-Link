@@ -13,11 +13,11 @@
         <form action="">
           <h2>Login</h2>
           <div class="input-group">
-            <input type="text" required />
-            <label for="username" id="username">Username</label>
+            <input type="email" class="login-email" required />
+            <label for="username" id="username">Email</label>
           </div>
           <div class="input-group">
-            <input type="password" required />
+            <input type="password" id="password-login" />
             <label for="password" id="password">Password</label>
           </div>
           <div class="remember">
@@ -70,7 +70,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
-    import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"
+    import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"
 
       // Your web app's Firebase configuration
       const firebaseConfig = {
@@ -112,6 +112,37 @@
           // ..
         });
       })
+
+
+
+
+      
+      const login = document.querySelector(".login");
+      
+      login.addEventListener("click",(event)=>{
+        event.preventDefault();
+
+      const loginEmail = document.querySelector(".login-email");
+      const loginPassword = document.querySelector("#password-login");
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value)
+        .then((userCredential) => {
+          // Signed up 
+          const user = userCredential.user;
+          // alert("logging in")
+          window.location.href='index.html';
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage);
+          // ..
+        });
+      })
+     
+    
+
     </script>
 
     <script src="login.js"></script>
